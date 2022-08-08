@@ -5,11 +5,14 @@ from account.models import User
 
 
 class Lesson(models.Model):
-    name = models.CharField
+    name = models.CharField(max_length=25, verbose_name='نام', null=False, blank=False)
 
     class Meta:
         verbose_name = 'درس'
         verbose_name_plural = 'دروس'
+    
+    def __str__(self):
+        return self.name
 
 
 class Class(models.Model):
