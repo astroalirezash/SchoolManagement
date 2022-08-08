@@ -5,9 +5,6 @@ from django.contrib.auth.models import AbstractBaseUser
 
 
 class User(AbstractBaseUser):
-    username = models.CharField(
-        max_length=40, unique=True
-        )
     name = models.CharField(
         max_length=30, verbose_name='نام'
         )
@@ -18,7 +15,7 @@ class User(AbstractBaseUser):
         max_length=30, verbose_name='نام پدر', null=False, blank=False
         )
     national_code = models.CharField(
-        max_length=10, verbose_name='کد ملی', null=False, blank='False'
+        max_length=10, verbose_name='کد ملی', null=False, blank=False, unique=True
         )
     hamgam_or_pressonel_code = models.CharField(
         max_length=25, verbose_name='کد همگام/پرسنلی'
@@ -33,5 +30,5 @@ class User(AbstractBaseUser):
         verbose_name='معلم', default=False
     )
 
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = 'national_code'
 
