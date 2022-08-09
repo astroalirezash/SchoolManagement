@@ -45,10 +45,29 @@ class Class(models.Model):
         verbose_name_plural = 'کلاس ها'
 
 
-# class Grade(models.Model):
-#     classes = models.ForeignKey(Class, verbose_name='کلاس ها')
-#     lessons = models.ForeignKey(Lesson, verbose_name='دروس')
-#     students = models.ForeignKey(User, on_delete=models.DO_NOTHING())  # can i have a queryset here? for example class.students
+class Grade(models.Model):
+    name = models.CharField(
+        max_length=50,
+        verbose_name='نام'
+    )
+    classes = models.ForeignKey(
+        Class,
+        verbose_name='کلاس ها',
+        on_delete=models.DO_NOTHING,
+        # related_name='classes'
+    )
+    lessons = models.ForeignKey(
+        Lesson,
+        verbose_name='دروس',
+        on_delete=models.DO_NOTHING,
+        # related_name='lessons'
+    )
+    students = models.ForeignKey(
+        User,
+        verbose_name='دانش آموزان',
+        on_delete=models.DO_NOTHING,
+        # related_name='students'
+    )
 
 
 # class ReportCard(models.Model):
