@@ -69,6 +69,13 @@ class Grade(models.Model):
         # related_name='students'
     )
 
+    class Meta:
+        verbose_name = 'پایه'
+        verbose_name_plural = 'پایه ها'
+    
+    def __str__(self):
+        return self.name
+
 
 # class ReportCard(models.Model):
 #     student = models.ForeignKey(User, models.DO_NOTHING())
