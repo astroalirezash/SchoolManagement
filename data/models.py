@@ -77,6 +77,6 @@ class Grade(models.Model):
         return self.name
 
 
-# class ReportCard(models.Model):
-#     student = models.ForeignKey(User, models.DO_NOTHING())
-#     lessons = models.ManyToManyField(Lesson, on_delete=models.DO_NOTHING())
+class ReportCard(models.Model):
+    student = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    lessons = models.ManyToManyField(Lesson, on_delete=models.DO_NOTHING)
