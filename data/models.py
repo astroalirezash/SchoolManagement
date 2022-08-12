@@ -78,5 +78,19 @@ class Grade(models.Model):
 
 
 class ReportCard(models.Model):
-    student = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-    lessons = models.ManyToManyField(Lesson)
+    student = models.ForeignKey(
+        User,
+        on_delete=models.DO_NOTHING,
+        verbose_name='دانش آموز'
+    )
+    lessons = models.ManyToManyField(
+        Lesson,
+        verbose_name='دروس'
+    )
+    
+    class Meta:
+        verbose_name = 'کارنامه'
+        verbose_name_plural = 'کارنامه ها'
+    
+    def __str__(self):
+        return f'{self.student.name} | {self.student.Class.name}'
