@@ -1,7 +1,51 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 # Create your models here.
+
+class UserManager(BaseUserManager):
+    def create_user(self, national_code, password=None):
+        """
+        Creates and saves a User with the given username and password.
+        """
+        if not national_code:
+            raise ValueError('Error: The User you want to create must have an username, try again')
+
+        my_user = self.model(
+            user=self.model.normalize_username(national_code),
+        )
+
+        my_user.set_password(password)
+        my_user.save(using=self._db)
+        return my_user
+
+    def create_staffuser(self, national_code, password):
+        """
+        Creates and saves a staff user with the given username and password.
+        """
+        my_user = self.create_user(
+            national_code,
+            password=password,
+        )
+        my_user.staff = True
+        my_user.save(using=self._db)
+        return my_user
+
+    def create_superuser(self, national_code, password):
+        """
+        Creates and saves a superuser with the given username and password.
+        """
+        my_user = self.create_user(
+            national_code,
+            password=password,
+        )
+        my_user.staff = True
+        my_user.admin = True
+        my_user.save(using=self._db)
+        return my_user
+
+    def get_by_natural_key(self, national_code):
+        return self.get(**{self.model.USERNAME_FIELD: national_code})
 
 
 class User(AbstractBaseUser):
@@ -30,5 +74,6 @@ class User(AbstractBaseUser):
         verbose_name='معلم', default=False
     )
 
-    USERNAME_FIELD = 'national_code'
+    objects = UserManager()
 
+    USERNAME_FIELD = 'national_code'
