@@ -73,7 +73,13 @@ class User(AbstractBaseUser):
     is_teacher = models.BooleanField(
         verbose_name='معلم', default=False
     )
-
-    objects = UserManager()
+    is_superuser = models.BooleanField(
+        default=False
+    )
+    is_active = models.BooleanField(
+        default=True, verbose_name='فعال / غیر فعال'
+    )
 
     USERNAME_FIELD = 'national_code'
+
+    objects = UserManager()
