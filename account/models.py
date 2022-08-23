@@ -12,7 +12,7 @@ class UserManager(BaseUserManager):
             raise ValueError('Error: The User you want to create must have an username, try again')
 
         my_user = self.model(
-            user=self.model.normalize_username(national_code),
+            national_code=self.model.normalize_username(national_code),
         )
 
         my_user.set_password(password)
