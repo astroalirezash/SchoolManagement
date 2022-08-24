@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 # Create your models here.
 
@@ -27,7 +27,7 @@ class UserManager(BaseUserManager):
             national_code,
             password=password,
         )
-        my_user.staff = True
+        my_user.is_staff = True
         my_user.save(using=self._db)
         return my_user
 
@@ -39,7 +39,8 @@ class UserManager(BaseUserManager):
             national_code,
             password=password,
         )
-        my_user.staff = True
+        my_user.is_superuser = True
+        my_user.is_staff = True
         my_user.admin = True
         my_user.save(using=self._db)
         return my_user
@@ -48,7 +49,7 @@ class UserManager(BaseUserManager):
         return self.get(**{self.model.USERNAME_FIELD: national_code})
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(
         max_length=30, verbose_name='نام'
         )
@@ -66,19 +67,19 @@ class User(AbstractBaseUser):
         )
     avatar = models.ImageField(
         null=False, blank=False, upload_to='account/avatar/', default='defualts/user.png'
-    )
+        )
     is_student = models.BooleanField(
         verbose_name='دانش آموز', default=True
-    )
+        )
     is_teacher = models.BooleanField(
         verbose_name='معلم', default=False
-    )
-    is_superuser = models.BooleanField(
-        default=False
-    )
+        )
     is_active = models.BooleanField(
         default=True, verbose_name='فعال / غیر فعال'
-    )
+        )
+    is_staff = models.BooleanField(
+        verbose_name='فعال / غیرفعال', default=False
+        )
 
     USERNAME_FIELD = 'national_code'
 
