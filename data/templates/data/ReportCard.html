@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>کارنامه</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{% static 'plugins/datatables/dataTables.bootstrap4.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+  <!-- bootstrap rtl -->
+  <link rel="stylesheet" href="{% static 'dist/css/bootstrap-rtl.min.css' %}">
+  <!-- template rtl version -->
+  <link rel="stylesheet" href="{% static 'dist/css/custom-style.css' %}">
+{% endblock head %}
+
+{% block body %}
+  <body class="sidebar-mini" style="height: auto;">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="../../index3.html" class="nav-link">خانه</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">تماس</a>
+        </li>
+      </ul>
+  
+      <!-- SEARCH FORM -->
+  
+  
+      <!-- Right navbar links -->
+  
+    </nav>
+    <!-- /.navbar -->
+  
+    <!-- Main Sidebar Container -->
+  
+  
+    <!-- Content Wrapper. Contains page content -->
+    <div>
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>جداول داده</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-left">
+                <li class="breadcrumb-item"><a href="#">خانه</a></li>
+                <li class="breadcrumb-item active">جداول داده</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+  
+      <!-- Main content -->
+      <section>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">جدول داده ۱</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <div id="example2_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid">
+                  <thead>
+                  <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="موتور رندر: activate to sort column descending">موتور رندر</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="مرورگر: activate to sort column ascending">مرورگر</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="سیستم عامل: activate to sort column ascending">سیستم عامل</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="ورژن: activate to sort column ascending">ورژن</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="امتیاز: activate to sort column ascending">امتیاز</th></tr>
+                  </thead>
+                  <tbody>
+                  <tr role="row" class="odd">
+                    <td class="sorting_1">Gecko</td>
+                    <td>Firefox ۱.۰</td>
+                    <td>Win ۹۸+ / OSX.۲+</td>
+                    <td>۱.۷</td>
+                    <td>A</td>
+                  </tr><tr role="row" class="even">
+                    <td class="sorting_1">Gecko</td>
+                    <td>Firefox ۱.۵</td>
+                    <td>Win ۹۸+ / OSX.۲+</td>
+                    <td>۱.۸</td>
+                    <td>A</td>
+                  </tr><tr role="row" class="odd">
+                    <td class="sorting_1">Gecko</td>
+                    <td>Firefox ۲.۰</td>
+                    <td>Win ۹۸+ / OSX.۲+</td>
+                    <td>۱.۸</td>
+                    <td>A</td>
+                  </tr><tr role="row" class="even">
+                    <td class="sorting_1">Gecko</td>
+                    <td>Firefox ۳.۰</td>
+                    <td>Win ۲k+ / OSX.۳+</td>
+                    <td>۱.۹</td>
+                    <td>A</td>
+                  </tr><tr role="row" class="odd">
+                    <td class="sorting_1">Gecko</td>
+                    <td>Camino ۱.۰</td>
+                    <td>OSX.۲+</td>
+                    <td>۱.۸</td>
+                    <td>A</td>
+                  </tr><tr role="row" class="even">
+                    <td class="sorting_1">Gecko</td>
+                    <td>Camino ۱.۵</td>
+                    <td>OSX.۳+</td>
+                    <td>۱.۸</td>
+                    <td>A</td>
+                  </tr><tr role="row" class="odd">
+                    <td class="sorting_1">Gecko</td>
+                    <td>Netscape ۷.۲</td>
+                    <td>Win ۹۵+ / Mac OS ۸.۶-۹.۲</td>
+                    <td>۱.۷</td>
+                    <td>A</td>
+                  </tr><tr role="row" class="even">
+                    <td class="sorting_1">Gecko</td>
+                    <td>Netscape Browser ۸</td>
+                    <td>Win ۹۸SE+</td>
+                    <td>۱.۷</td>
+                    <td>A</td>
+                  </tr><tr role="row" class="odd">
+                    <td class="sorting_1">Gecko</td>
+                    <td>Netscape Navigator ۹</td>
+                    <td>Win ۹۸+ / OSX.۲+</td>
+                    <td>۱.۸</td>
+                    <td>A</td>
+                  </tr><tr role="row" class="even">
+                    <td class="sorting_1">Gecko</td>
+                    <td>Mozilla ۱.۰</td>
+                    <td>Win ۹۵+ / OSX.۱+</td>
+                    <td>۱</td>
+                    <td>A</td>
+                  </tr></tbody>
+                  <tfoot>
+                  <tr><th rowspan="1" colspan="1">موتور رندر</th><th rowspan="1" colspan="1">مرورگر</th><th rowspan="1" colspan="1">سیستم عامل</th><th rowspan="1" colspan="1">ورژن</th><th rowspan="1" colspan="1">امتیاز</th></tr>
+                  </tfoot>
+                </table></div></div><div class="row"><div class="col-sm-12 col-md-5"></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="example2_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="example2_previous"><a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">قبلی</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">بعدی</a></li></ul></div></div></div></div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+  
+  
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <strong>CopyLeft © ۲۰۱۸ <a href="http://github.com/hesammousavi/">حسام موسوی</a>.</strong>
+    </footer>
+  
+    <!-- Control Sidebar -->
+  
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+  
+  <!-- jQuery -->
+  <script src="../../plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- DataTables -->
+  <script src="../../plugins/datatables/jquery.dataTables.js"></script>
+  <script src="../../plugins/datatables/dataTables.bootstrap4.js"></script>
+  <!-- SlimScroll -->
+  <script src="../../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+  <!-- FastClick -->
+  <script src="../../plugins/fastclick/fastclick.js"></script>
+  <!-- AdminLTE App -->
+  <script src="../../dist/js/adminlte.min.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="../../dist/js/demo.js"></script>
+  <!-- page script -->
+
+  </body>
+{% endblock body %}
