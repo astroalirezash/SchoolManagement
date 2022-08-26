@@ -1,11 +1,10 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html>
-<head>
+{% block head %}
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>پنل مدیریت | صفحه ورود</title>
+  <title>ورود</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,10 +23,23 @@
   <link rel="stylesheet" href="{% static 'dist/css/bootstrap-rtl.min.css' %}">
   <!-- template rtl version -->
   <link rel="stylesheet" href="{% static 'dist/css/custom-style.css' %}">
-</head>
+  {% endblock head %}
 
 
-<body class="hold-transition login-page" style="background-color: #fff; !important">
+{% block body %}
+  <style>
+    body {
+      background-image: url('https://img.freepik.com/free-photo/neon-tropical-monstera-leaf-banner_53876-138943.jpg?w=900&t=st=1661515359~exp=1661515959~hmac=dc1c0b4254b6b4ab9543636b9a38919743f5f85edd0f706826a55adbb9051a0d') !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+      background-attachment: fixed !important;
+    }
+    b {
+      color: #fff !important;
+    }
+  </style>
+
+<body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
     <a href="../../index2.html"><b>ورود به سایت</b></a>
@@ -42,6 +54,7 @@
             <label>کد ملی: </label>
             {{ form.username }}
             {% comment %} <input type="email" class="form-control" placeholder="کد ملی"> {% endcomment %}
+            
           </div>
           <div class="input-group-append">
             <span class="fa fa-envelope input-group-text"></span>
@@ -72,4 +85,4 @@
   </div>
 </div>
 <!-- /.login-box -->
-</html>
+{% endblock %}
