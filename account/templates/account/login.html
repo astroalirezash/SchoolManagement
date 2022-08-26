@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,16 +14,16 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="{% static 'plugins/iCheck/square/blue.css' %}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
   <!-- bootstrap rtl -->
-  <link rel="stylesheet" href="../../dist/css/bootstrap-rtl.min.css">
+  <link rel="stylesheet" href="{% static 'dist/css/bootstrap-rtl.min.css' %}">
   <!-- template rtl version -->
-  <link rel="stylesheet" href="../../dist/css/custom-style.css">
+  <link rel="stylesheet" href="{% static 'dist/css/custom-style.css' %}">
 </head>
 
 
@@ -33,21 +35,30 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <form action="../../index2.html" method="post">
+      <form action="#" method="post">
+        {% csrf_token %}
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="کد ملی">
+          <div class="form-control text-center">
+            <label>کد ملی: </label>
+            {{ form.username }}
+            {% comment %} <input type="email" class="form-control" placeholder="کد ملی"> {% endcomment %}
+          </div>
           <div class="input-group-append">
             <span class="fa fa-envelope input-group-text"></span>
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="رمز عبور">
+          <div class="form-control text-center">
+            <label>رمز عبور: </label>
+            {{ form.password }}
+          </div>
+          {% comment %} <input type="password" class="form-control" placeholder="رمز عبور"> {% endcomment %}
           <div class="input-group-append">
             <span class="fa fa-lock input-group-text"></span>
           </div>
         </div>
           <!-- /.col -->
-          <div class="col-4">
+          <div class="col-4 text-center">
             <button type="submit" class="btn btn-primary btn-block btn-flat">ورود</button>
           </div>
           <!-- /.col -->
