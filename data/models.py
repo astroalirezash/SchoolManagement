@@ -1,4 +1,7 @@
+from multiprocessing import Manager
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 from account.models import User
 
 # Create your models here.
@@ -83,14 +86,58 @@ class ReportCard(models.Model):
         on_delete=models.DO_NOTHING,
         verbose_name='دانش آموز'
     )
-    lessons = models.ManyToManyField(
-        Lesson,
-        verbose_name='دروس'
-    )
-    
+
     class Meta:
         verbose_name = 'کارنامه'
         verbose_name_plural = 'کارنامه ها'
     
     def __str__(self):
         return f'{self.student.name} | {self.student.Class.name}'
+
+
+class Score(models.Model):
+    quarter1 = models.FloatField(
+        verbose_name='نمره',
+        default=0.0,
+        validators=[
+            MinValueValidator(0.0), MaxValueValidator(20.0)
+        ]
+    )
+    quarter2 = models.FloatField(
+        verbose_name='ترم اول',
+        default=0.0,
+        validators=[
+            MinValueValidator(0.0), MaxValueValidator(20.0)
+        ]
+    )
+    quarter3 = models.FloatField(
+        verbose_name='میان ترم دوم',
+        default=0.0,
+        validators=[
+            MinValueValidator(0.0), MaxValueValidator(20.0)
+        ]
+    )
+    quarter4 = models.FloatField(
+        verbose_name='خرداد',
+        default=0.0,
+        validators=[
+            MinValueValidator(0.0), MaxValueValidator(20.0)
+        ]
+    )
+    lesson = models.ForeignKey(
+        Lesson,
+        verbose_name='نام درس', 
+        on_delete=models.PROTECT
+    )
+    rcard = models.ForeignKey(
+        ReportCard,
+        verbose_name='کارنامه',
+        on_delete=models.CASCADE
+    )
+
+    class Meta:
+        verbose_name = 'نمره درس'
+        verbose_name_plural = 'نمرات دروس'
+    
+    def __str__(self):
+        return f'{self.number} | {self.lesson}'
