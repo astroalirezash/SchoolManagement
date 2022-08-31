@@ -4,7 +4,8 @@ from .models import (
     Class,
     Grade,
     ReportCard,
-    Lesson
+    Lesson,
+    Score
 )
 
 
@@ -14,3 +15,4 @@ admin.site.register(Class)
 admin.site.register(Grade)
 admin.site.register(ReportCard)
 admin.site.register(Lesson)
+admin.site.register(Score)
