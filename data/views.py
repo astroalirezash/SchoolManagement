@@ -1,6 +1,5 @@
-from urllib import request
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, View
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import (
@@ -10,11 +9,14 @@ from .models import (
 # Create your views here.
 
 
-# class ReportCardListView(ListView): TODO: ReportCard List View
-#     userid = request.user.id
-#     model = ReportCard
-#     queryset = ReportCard.objects.filter(student_id=userid)
-#     template_name = ''
+class ReportCards(LoginRequiredMixin, View):
+    def get(self, request):
+        userid = request.user.id
+        rcards = ReportCard.objects.filter(student_id=userid)
+        context = {
+            'rcards': rcards
+        }
+        return render(request, 'data/ReportCards.html', context)
 
 
 class ReportCardDetailView(LoginRequiredMixin, DetailView):
