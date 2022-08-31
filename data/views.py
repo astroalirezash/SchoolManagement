@@ -1,22 +1,28 @@
+from urllib import request
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import View
+from django.views.generic import DetailView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http.response import Http404
 
 from .models import (
     ReportCard
 )
-from account.models import User
 
 # Create your views here.
 
 
-class RcardView(LoginRequiredMixin, View):
+# class ReportCardListView(ListView): TODO: ReportCard List View
+#     userid = request.user.id
+#     model = ReportCard
+#     queryset = ReportCard.objects.filter(student_id=userid)
+#     template_name = ''
 
-    def get(self, request):
-        user = request.user.id
-        rcard = get_object_or_404(ReportCard, student_id=user)
-        context = {
-            'rcard': rcard
-        }
-        return render(request, 'data/ReportCard.html', context)            
+
+class ReportCardDetailView(LoginRequiredMixin, DetailView):
+    def get_object(self):
+        rcard_year = self.kwargs.get('year')
+        user = self.request.user.id
+        rcard = get_object_or_404(ReportCard, student_id=user, year=rcard_year)
+        return rcard
+    template_name = 'data/ReportCard.html'
+    context_object_name = 'rcard'
+    

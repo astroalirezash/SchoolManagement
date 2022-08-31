@@ -85,10 +85,26 @@
               <div class="card-body">
                 <div id="example2_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid">
                   <thead>
-                  <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="موتور رندر: activate to sort column descending">موتور رندر</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="مرورگر: activate to sort column ascending">مرورگر</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="سیستم عامل: activate to sort column ascending">سیستم عامل</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="ورژن: activate to sort column ascending">ورژن</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="امتیاز: activate to sort column ascending">امتیاز</th></tr>
+                  <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="موتور رندر: activate to sort column descending">نام درس</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="مرورگر: activate to sort column ascending">میان ترم اول</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="سیستم عامل: activate to sort column ascending">ترم اول</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="ورژن: activate to sort column ascending">میان ترم دوم</th><th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="امتیاز: activate to sort column ascending">ترم دوم</th></tr>
                   </thead>
                   <tbody>
-                  <tr role="row" class="odd">
+                    {% for i in rcard.score_set.all %}
+
+                    <td class="sorting_1">{{ i.lesson.name }}</td>
+                    <td>{{ i.quarter1 }}</td>
+                    <td>{{ i.quarter2 }}</td>
+                    <td>{{ i.quarter3 }}</td>
+                    <td>{{ i.quarter4 }}</td>
+                    {% endfor %}
+                  {% comment %} </tr><tr role="row" class="even">
+                    <td class="sorting_1">i</td>
+                    <td>Firefox ۱.۵</td>
+                    <td>Win ۹۸+ / OSX.۲+</td>
+                    <td>۱.۸</td>
+                    <td>A</td>
+                  </tr {% endcomment %}
+                  
+                  {% comment %} <tr role="row" class="odd">
                     <td class="sorting_1">Gecko</td>
                     <td>Firefox ۱.۰</td>
                     <td>Win ۹۸+ / OSX.۲+</td>
@@ -148,9 +164,9 @@
                     <td>Win ۹۵+ / OSX.۱+</td>
                     <td>۱</td>
                     <td>A</td>
-                  </tr></tbody>
+                  </tr>{% endcomment %}</tbody> 
                   <tfoot>
-                  <tr><th rowspan="1" colspan="1">موتور رندر</th><th rowspan="1" colspan="1">مرورگر</th><th rowspan="1" colspan="1">سیستم عامل</th><th rowspan="1" colspan="1">ورژن</th><th rowspan="1" colspan="1">امتیاز</th></tr>
+                  <tr><th rowspan="1" colspan="1">نام درس</th><th rowspan="1" colspan="1">میان ترم اول</th><th rowspan="1" colspan="1">ترم اول</th><th rowspan="1" colspan="1">میان ترم دوم</th><th rowspan="1" colspan="1">ترم دوم</th></tr>
                   </tfoot>
               </div>
               <!-- /.card-body -->

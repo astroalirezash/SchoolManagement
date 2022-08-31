@@ -1,12 +1,13 @@
 from django.urls import path
 
 from .views import (
-    RcardView
+    ReportCardDetailView
 )
 
 
 app_name = 'data'
 
 urlpatterns = [
-    path('report-card', RcardView.as_view(), name='rcard')
+    # TODO: path: report-card
+    path('report-card/<str:year>', ReportCardDetailView.as_view(), name='rcard')
 ]
