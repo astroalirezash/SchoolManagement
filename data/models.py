@@ -101,7 +101,7 @@ class ReportCard(models.Model):
 
 class Score(models.Model):
     quarter1 = models.FloatField(
-        verbose_name='نمره',
+        verbose_name='میان ترم اول',
         default=0.0,
         validators=[
             MinValueValidator(0.0), MaxValueValidator(20.0)
@@ -144,4 +144,4 @@ class Score(models.Model):
         verbose_name_plural = 'نمرات دروس'
     
     def __str__(self):
-        return f'{self.number} | {self.lesson}'
+        return f'{self.rcard.student.full_name()} | {self.lesson}'
