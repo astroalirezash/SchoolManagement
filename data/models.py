@@ -86,13 +86,17 @@ class ReportCard(models.Model):
         on_delete=models.DO_NOTHING,
         verbose_name='دانش آموز'
     )
+    year = models.CharField(
+        verbose_name='سال تحصیلی',
+        max_length=10
+    )
 
     class Meta:
         verbose_name = 'کارنامه'
         verbose_name_plural = 'کارنامه ها'
     
     def __str__(self):
-        return f'{self.student.name} | {self.student.Class.name}'
+        return f'{self.student.full_name()} | {self.year}'
 
 
 class Score(models.Model):
