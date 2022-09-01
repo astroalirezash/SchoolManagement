@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     # My Apps:
     'account',
     'data',
-    'content'
+    'content',
+    
+    # Libraries:
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
