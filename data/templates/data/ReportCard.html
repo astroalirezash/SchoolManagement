@@ -36,10 +36,10 @@
           <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="../../index3.html" class="nav-link">خانه</a>
+          <a href="/" class="nav-link">خانه</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="#" class="nav-link">تماس</a>
+          <a href="{% url 'data:rcards' %}" class="nav-link">کارنامه ها</a>
         </li>
       </ul>
 
@@ -50,14 +50,9 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>جداول داده</h1>
+              <h4>کارنامه {{ rcard.student.full_name }} {{ rcard.year }}</h4>
             </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-left">
-                <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                <li class="breadcrumb-item active">جداول داده</li>
-              </ol>
-            </div>
+            
           </div>
         </div><!-- /.container-fluid -->
       </section>
@@ -67,9 +62,6 @@
         <div class="row">
           <div class="col-12">
             <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">جدول داده ۱</h3>
-              </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <div id="example2_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4"><div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"></div></div><div class="row"><div class="col-sm-12"><table id="example2" class="table table-bordered table-hover dataTable" role="grid">
@@ -100,14 +92,9 @@
       <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
 
-    </footer>
-  
-    <!-- Control Sidebar -->
-  
-    <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
+  {% include 'footer.html' %}
   </body>
 {% endblock body %}
