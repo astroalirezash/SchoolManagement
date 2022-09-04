@@ -72,21 +72,26 @@
     <!-- /.navbar -->
   
     <!-- Main Sidebar Container -->
+    
+  
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="margin-right:80px !important">
       <!-- Content Header (Page header) -->
-      <section class="content-header" style="background-color: #fff !important;">
+      <section class="content-header" style="background-color: #fff !important; padding-right: 118.5px !important">
         <div class="container-fluid">
           <div class="row mb-2">
-            <div class="col-sm-6">
-                <ol class="breadcrumb float-sm-left">
-                  <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                  <li class="breadcrumb-item active">کارنامه ها</li>
-                </ol>
+            <div class="col-sm-12" style="/*flex: 0 0 50% !important;*/">
+              <ol class="breadcrumb float-sm-left">
+                <li class="breadcrumb-item"><a href="#">خانه</a></li>
+                <li class="breadcrumb-item active">کارنامه ها</li>
+              </ol>
+            </div>
+            <div class="col-sm-10 test" style="/*flex: 0 0 90% !important; max-width: 0% !important*/">
+              <h1>{{ news.title }}</h1>
+              
+              <div class="center">
+                {{ news.text|safe }}
               </div>
-            <div class="col-sm-6">
-                <h1>{{ news.title }}</h1>
-              {{ news.text|safe }}
             </div>
           </div>
         </div><!-- /.container-fluid -->
@@ -105,5 +110,6 @@
     <!-- /.content-wrapper -->  
   </div>
   <!-- ./wrapper -->
+  {% include 'footer.html' %}
 </body>
 {% endblock body %} 
