@@ -52,7 +52,14 @@
             <div class="col-sm-6">
               <h4>کارنامه {{ rcard.student.full_name }} {{ rcard.year }}</h4>
             </div>
-            
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-left">
+                <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'data:rcards' %}">کارنامه ها</a></li>
+                <li class="breadcrumb-item active">{{ rcard.student.full_name }} {{ rcard.year }}</li>
+
+              </ol>
+            </div>
           </div>
         </div><!-- /.container-fluid -->
       </section>

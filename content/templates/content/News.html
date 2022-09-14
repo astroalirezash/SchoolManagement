@@ -57,13 +57,14 @@
       <section class="content-header" style="background-color: #fff !important; padding-right: 118.5px !important">
         <div class="container-fluid">
           <div class="row mb-2">
-            <div class="col-sm-12" style="/*flex: 0 0 50% !important;*/">
+            <div class="col-sm-12">
               <ol class="breadcrumb float-sm-left">
-                <li class="breadcrumb-item"><a href="#">خانه</a></li>
-                <li class="breadcrumb-item active">کارنامه ها</li>
+                <li class="breadcrumb-item"><a href="/">خانه</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'content:news' %}">اخبار</a></li>
+                <li class="breadcrumb-item active">{{ news.title }}</li>
               </ol>
             </div>
-            <div class="col-sm-10 test" style="/*flex: 0 0 90% !important; max-width: 0% !important*/">
+            <div class="col-sm-10 test">
               <h1>{{ news.title }}</h1>
               
               <div class="center">
