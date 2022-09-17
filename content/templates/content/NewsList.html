@@ -40,6 +40,10 @@
     border-radius: 10px;
     height: 100px;
     box-shadow: 2px 2px 4px #017069;
+    background-size: 375px;
+    width: 375px;
+    height: 115px;
+    border: 2px solid;
   }
   
 </style>
@@ -93,9 +97,11 @@
             </div>
             {% for article in news %}
             <article class="col-md-4 article-card">
+              {% comment %} <img src="{{ article.banner }}"> {% endcomment %}
               <a href="{% url 'content:snews' article.pk %}">
-              <div class='test'>
+              <div class='test' style="background-image:url('{{ article.banner }}')">
                   <h2 class="text-center">{{ article.title }}</h2>
+                  {% comment %} <img class="img-responsive filterdark" width="375" height="175" sizes="(max-width: 768px) 200px, 264px" src="{{ article.banner }}" > {% endcomment %}
               </div>
             </a>
           </article>

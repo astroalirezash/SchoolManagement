@@ -6,6 +6,9 @@ from django.utils import timezone
 
 
 class News(models.Model):
+    banner = models.ImageField(
+        upload_to='media/news/', max_length='200', default='media/defaults/news_banner.jpg'
+    )
     title = models.CharField(
         verbose_name='تایل', max_length=50
     )
@@ -25,5 +28,3 @@ class News(models.Model):
 
     def __str__(self):
         return f'{self.title} | {self.date_added}'
-    
-

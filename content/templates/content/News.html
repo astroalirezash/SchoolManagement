@@ -27,6 +27,14 @@
 
 {% block body %}
 <body class="sidebar-mini control-sidebar-slide-open" style="height: auto;">
+  
+<style>
+  .test {
+    border: 1px solid #121212;
+    border-radius: 5px
+  }
+</style>
+
   <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -65,8 +73,11 @@
               </ol>
             </div>
             <div class="col-sm-10 test">
+              <img class="nbanner col-sm-12" src="/{{ news.banner }}">
+              <br>
+              <br>
               <h1>{{ news.title }}</h1>
-              
+              <br>
               <div class="center">
                 {{ news.text|safe }}
               </div>
