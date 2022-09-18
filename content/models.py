@@ -1,5 +1,5 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.utils import timezone
 
 # Create your models here.
@@ -12,7 +12,7 @@ class News(models.Model):
     title = models.CharField(
         verbose_name='تایل', max_length=50
     )
-    text = RichTextField(
+    text = RichTextUploadingField(
         null=True, blank=True
     )
     date_added = models.DateTimeField(
